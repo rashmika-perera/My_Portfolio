@@ -32,7 +32,7 @@ const NavigationBar = () => {
         </h1>
         {showSnowHat && (
           <img
-            src="/hat.png"
+            src="/hat.webp"
             alt="hat"
             className="absolute -top-3 -left-5 w-10 rotate-[-20deg] select-none"
           />
