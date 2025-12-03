@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import bg from "/hero.webp";
-import bg2 from "./assets/background2.jpg";
+import bg2 from "./assets/background2.webp";
 import NavigationBar from "./navigationbar";
 import About from "./about";
 import Skills from "./skills";
