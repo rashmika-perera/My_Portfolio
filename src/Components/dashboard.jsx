@@ -35,11 +35,18 @@ const Dashboard = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Check if it's winter season (November, December, January, February)
+  // Check if it's winter season (November, December, January)
   useEffect(() => {
     const currentMonth = new Date().getMonth(); // 0-11
-    const isWinter = currentMonth === 10 || currentMonth === 11 || currentMonth === 0 || currentMonth === 1; // Nov, Dec, Jan, Feb
-    setShowSnow(isWinter);
+    if(currentMonth === 10 || currentMonth === 0) {
+      setShowSnow("normal");
+    }
+    else if(currentMonth === 11) {
+      setShowSnow("heavy");
+    }
+    else{
+      setShowSnow(null);
+    }
   }, []);
 
   useEffect(() => {
@@ -93,7 +100,7 @@ const Dashboard = () => {
       <AnimatePresence>{isLoading && <Preloader />}</AnimatePresence>
 
       {/* Snowfall Effect */}
-      {showSnow && (
+      {showSnow === "normal" && (
         <Snowfall
           color="white"
           snowflakeCount={50}
@@ -107,6 +114,23 @@ const Dashboard = () => {
           speed={[0.5, 2.0]}
           wind={[-0.5, 1.0]}
           radius={[0.5, 3.0]}
+        />
+      )}
+
+      {showSnow === "heavy" && (
+        <Snowfall
+          color="white"
+          snowflakeCount={130}
+          style={{
+            position: 'fixed',
+            width: '100vw',
+            height: '100vh',
+            zIndex: 10,
+            pointerEvents: 'none'
+          }}
+          speed={[1.0, 3.0]}
+          wind={[-1.0, 2.0]}
+          radius={[1.0, 4.0]}
         />
       )}
 

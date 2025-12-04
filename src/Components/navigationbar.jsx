@@ -13,10 +13,10 @@ const NavigationBar = () => {
   const closeMenu = () => setIsOpen(false);
 
 
-   // Check if it's winter season (November, December, January, February)
+   // Check if it's winter season (November, December, January)
     useEffect(() => {
       const currentMonth = new Date().getMonth(); // 0-11
-      const isWinter = currentMonth === 10 || currentMonth === 11 || currentMonth === 0 || currentMonth === 1; // Nov, Dec, Jan, Feb
+      const isWinter = currentMonth === 10 || currentMonth === 11 || currentMonth === 0; // Nov, Dec, Jan
       setShowSnowHat(isWinter);
     }, []);
 
