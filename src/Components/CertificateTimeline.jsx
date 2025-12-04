@@ -6,6 +6,7 @@ import FrontEndPDF from "./assets/frontEnd.png";
 import AdvancedReact from "./assets/advancedReact.png";
 import Python from "./assets/googlePython.png";
 
+// Sample certificate data
 const certificates = [
   {
     id: "cert1",
