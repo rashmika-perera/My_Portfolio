@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import PI from "./assets/profile1.jpg";
+// eslint-disable-next-line no-unused-vars
 import { motion, useInView } from "framer-motion";
 import { useState, useRef } from "react";
 
@@ -172,7 +173,7 @@ const About = () => {
       </div>
 
       <motion.div
-        className="flex flex-col md:flex-row items-center justify-center justify-between h-full text-white gap-10 relative z-10"
+        className="flex flex-col md:flex-row items-center justify-center h-full text-white gap-10 relative z-10"
         variants={itemVariants}
       >
         <motion.div
@@ -227,7 +228,7 @@ const About = () => {
             I'm Rashmika Perera, a passionate Full Stack developer and designer
           </motion.h1>
           <motion.p
-            className="text-sm md:text-[16px] text-gray-400 leading-[1.5] leading-[1.6] mt-2"
+            className="text-sm md:text-[16px] text-gray-400 leading-[1.6] mt-2"
             style={{ fontFamily: "'Poppins', sans-serif" }}
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}

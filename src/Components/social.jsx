@@ -1,5 +1,6 @@
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 const Social = () => {

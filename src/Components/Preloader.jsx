@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 
 const Preloader = () => {
@@ -87,14 +88,6 @@ const Preloader = () => {
                 fill="none"
                 stroke="#04AA6D"
                 strokeWidth="3"
-                animate={{
-                  d: paths,
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
               />
             </motion.svg>
             <div className="text-white text-6xl font-mono font-bold flex items-center">

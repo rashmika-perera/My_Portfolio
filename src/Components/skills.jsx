@@ -1,6 +1,7 @@
-import SkillsCarousel from "./SkillsCarousel";
+// eslint-disable-next-line no-unused-vars
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import SkillsCarousel from "./SkillsCarousel";
 
 const Skills = () => {
   const containerRef = useRef(null);

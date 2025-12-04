@@ -1,10 +1,12 @@
-import { motion, useMotionValue, useTransform, useInView } from "framer-motion";
+// eslint-disable-next-line no-unused-vars
+import { motion, useMotionValue, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import project from "./project";
 import { FaGithub, FaExternalLinkAlt, FaCode, FaRocket } from "react-icons/fa";
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [rotates, setRotates] = useState({});
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
@@ -189,8 +191,6 @@ const Projects = () => {
         variants={containerVariants}
       >
         {project.map((proj, index) => {
-          const x = useMotionValue(0);
-          const y = useMotionValue(0);
 
           const handleMouseMove = (e) => {
             const rect = e.currentTarget.getBoundingClientRect();
@@ -199,13 +199,11 @@ const Projects = () => {
             const rotateX = (e.clientY - centerY) / 10;
             const rotateY = (e.clientX - centerX) / 10;
 
-            x.set(rotateY);
-            y.set(-rotateX);
+            setRotates(prev => ({ ...prev, [index]: { x: rotateY, y: -rotateX } }));
           };
 
           const handleMouseLeave = () => {
-            x.set(0);
-            y.set(0);
+            setRotates(prev => ({ ...prev, [index]: { x: 0, y: 0 } }));
           };
 
           return (
@@ -222,8 +220,8 @@ const Projects = () => {
                 transition: { duration: 0.3 }
               }}
               style={{
-                rotateX: y,
-                rotateY: x,
+                rotateX: rotates[index]?.y || 0,
+                rotateY: rotates[index]?.x || 0,
                 transformStyle: "preserve-3d",
               }}
             >

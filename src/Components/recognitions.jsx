@@ -1,4 +1,5 @@
 import Certificates from "./CertificateTimeline";
+// eslint-disable-next-line no-unused-vars
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 

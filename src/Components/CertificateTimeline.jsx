@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
-import { motion, AnimatePresence, useMotionValue, useInView } from "framer-motion";
+// eslint-disable-next-line no-unused-vars
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { FaCertificate, FaAward, FaTrophy } from "react-icons/fa";
 
 import FrontEndPDF from "./assets/frontEnd.png";
@@ -40,6 +41,7 @@ const CertificateTimeline = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const [rotates, setRotates] = useState(certificates.map(() => ({ x: 0, y: 0 })));
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -139,16 +141,13 @@ const CertificateTimeline = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 sm:px-10 md:px-23 pb-4 max-w-7xl mx-auto pb-8 relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 sm:px-10 md:px-23 max-w-7xl mx-auto pb-8 relative z-10">
       {/* Left: Timeline */}
       <motion.div
         className="relative border-l-4 border-[#04AA6D] pl-6 space-y-12"
         variants={containerVariants}
       >
         {certificates.map((cert, index) => {
-          const x = useMotionValue(0);
-          const y = useMotionValue(0);
-
           const handleMouseMove = (e) => {
             const rect = e.currentTarget.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
@@ -156,13 +155,11 @@ const CertificateTimeline = () => {
             const rotateX = (e.clientY - centerY) / 15;
             const rotateY = (e.clientX - centerX) / 15;
 
-            x.set(rotateY);
-            y.set(-rotateX);
+            setRotates(prev => prev.map((r, i) => i === index ? { x: rotateY, y: -rotateX } : r));
           };
 
           const handleMouseLeave = () => {
-            x.set(0);
-            y.set(0);
+            setRotates(prev => prev.map((r, i) => i === index ? { x: 0, y: 0 } : r));
           };
 
           return (
@@ -180,8 +177,8 @@ const CertificateTimeline = () => {
                 transition: { duration: 0.3 }
               }}
               style={{
-                rotateX: y,
-                rotateY: x,
+                rotateX: rotates[index].y,
+                rotateY: rotates[index].x,
                 transformStyle: "preserve-3d",
               }}
             >

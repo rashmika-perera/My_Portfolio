@@ -1,4 +1,5 @@
-import { motion, useMotionValue, useInView, AnimatePresence } from "framer-motion";
+// eslint-disable-next-line no-unused-vars
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { FaPaperPlane, FaUser, FaEnvelope, FaComment, FaCheck, FaExclamationTriangle } from "react-icons/fa";
 import emailjs from '@emailjs/browser';

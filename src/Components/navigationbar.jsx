@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { Menu, X } from "lucide-react";
 import { IoClose } from "react-icons/io5";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 const NavigationBar = () => {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import bg from "/hero.webp";
 import bg2 from "./assets/background2.webp";

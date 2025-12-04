@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useInView } from "framer-motion";
+// eslint-disable-next-line no-unused-vars
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import tailwind from "./assets/Tailwind CSS.png";
 import python from "./assets/Python.png";
 import CSharp from "./assets/CSharp.png";
@@ -90,6 +91,7 @@ const skills = [
 export default function SkillsCarousel() {
   const [centerIndex, setCenterIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [rotates, setRotates] = useState({});
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
@@ -240,10 +242,8 @@ export default function SkillsCarousel() {
           className="flex space-x-10 items-center"
           variants={itemVariants}
         >
-          {[leftIndex, centerIndex, rightIndex].map((index, i) => {
+          {[leftIndex, centerIndex, rightIndex].map((index) => {
             const isCenter = index === centerIndex;
-            const x = useMotionValue(0);
-            const y = useMotionValue(0);
 
             const handleMouseMove = (e) => {
               if (!isCenter) return;
@@ -253,13 +253,11 @@ export default function SkillsCarousel() {
               const rotateX = (e.clientY - centerY) / 20;
               const rotateY = (e.clientX - centerX) / 20;
 
-              x.set(rotateY);
-              y.set(-rotateX);
+              setRotates(prev => ({ ...prev, [index]: { x: rotateY, y: -rotateX } }));
             };
 
             const handleMouseLeave = () => {
-              x.set(0);
-              y.set(0);
+              setRotates(prev => ({ ...prev, [index]: { x: 0, y: 0 } }));
             };
 
             return (
@@ -277,8 +275,8 @@ export default function SkillsCarousel() {
                 onHoverStart={() => isCenter && setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
                 style={{
-                  rotateX: isCenter ? y : 0,
-                  rotateY: isCenter ? x : 0,
+                  rotateX: isCenter ? (rotates[index]?.y || 0) : 0,
+                  rotateY: isCenter ? (rotates[index]?.x || 0) : 0,
                   transformStyle: "preserve-3d",
                 }}
               >
