@@ -40,7 +40,7 @@ const Projects = () => {
     <motion.div
       ref={containerRef}
       id="Devfolio"
-      className="py-16 relative overflow-hidden"
+      className="py-10 relative overflow-hidden"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
@@ -174,15 +174,6 @@ const Projects = () => {
             </div>
           </div>
         </div>
-
-        <motion.p
-          className="text-gray-400 text-lg mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          A showcase of innovative solutions and creative implementations that bring ideas to life
-        </motion.p>
       </motion.div>
 
       {/* Projects Grid */}

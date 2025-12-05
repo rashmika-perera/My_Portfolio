@@ -36,7 +36,7 @@ const Recognitions = () => {
   return (
     <motion.div
       ref={containerRef}
-      className="relative overflow-hidden py-20"
+      className="relative overflow-hidden py-10"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
@@ -158,7 +158,7 @@ const Recognitions = () => {
           </div>
 
           <motion.p
-            className="text-gray-400 italic text-sm md:text-lg mt-14 mb-5 max-w-lg px-6 md:max-w-5xl mx-auto"
+            className="text-gray-400 italic text-sm md:text-lg mt-10 max-w-lg px-6 md:max-w-5xl mx-auto"
             style={{ fontFamily: "'Poppins', sans-serif" }}
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}

@@ -100,7 +100,7 @@ const Contact = () => {
     <motion.div
       ref={containerRef}
       id="contact"
-      className="py-16 relative overflow-hidden"
+      className="py-10 relative overflow-hidden"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
@@ -224,7 +224,7 @@ const Contact = () => {
         </div>
 
         <motion.p
-          className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed"
+          className="text-gray-400 italic text-sm md:text-lg  max-w-lg px-6 md:max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.5 }}
