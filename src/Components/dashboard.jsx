@@ -45,7 +45,7 @@ const Dashboard = () => {
       setShowSnow("heavy");
     }
     else{
-      setShowSnow(null);
+      setShowSnow(false);
     }
   }, []);
 
