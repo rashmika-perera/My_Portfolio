@@ -239,7 +239,7 @@ const About = () => {
               className="bg-[#04AA6D] text-white w-37 h-12 rounded-[50px] font-semibold mt-6 transition-all duration-300 hover:bg-[#038f5c] hover:shadow-lg hover:shadow-[#04AA6D]/25"
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/1U-3u292ke3s5DeoTJa_j0Bza_eQzqiMZ/view?usp=sharing",
+                  "https://drive.google.com/file/d/1oSonkvXrRHHHBJ3HXSkNy5O5hVYYCxZv/view?usp=sharing",
                   "_blank"
                 )
               }
