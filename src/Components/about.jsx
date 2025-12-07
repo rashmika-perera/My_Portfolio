@@ -1,13 +1,11 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import PI from "./assets/profile1.jpg";
 // eslint-disable-next-line no-unused-vars
 import { motion, useInView } from "framer-motion";
 import { useState, useRef } from "react";
 
 const About = () => {
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
-  const [hoveredIndex, setHoveredIndex] = useState(null);
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
@@ -178,30 +176,11 @@ const About = () => {
       >
         <motion.div
           className="relative group"
-          onHoverStart={() => setHoveredIndex(0)}
-          onHoverEnd={() => setHoveredIndex(null)}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
         >
-          {/* Image Glow Effect */}
-          <motion.div
-            className="absolute -inset-4 bg-gradient-to-r from-[#04AA6D] via-transparent to-[#04AA6D] rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"
-            animate={{
-              opacity: hoveredIndex === 0 ? 0.3 : 0,
-            }}
-          />
-
           <motion.img
-            src={PI}
+            src={"/perera.webp"}
             alt="Profile"
-            className="relative border-4 border-gray-800 rounded-2xl h-103 w-80 sm:h-113 sm:w-80 md:h-133 md:w-100 mb-4 shadow-2xl hover:shadow-[#04AA6D]/20 transition-all duration-500"
-            whileHover={{
-              borderColor: "#04AA6D",
-              boxShadow: "0 25px 50px -12px rgba(4, 170, 109, 0.25)",
-            }}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            className="relative border border-gray-900 rounded-2xl h-103 w-80 sm:h-113 sm:w-80 md:h-133 md:w-100 mb-4 shadow-2xl"
           />
         </motion.div>
 
