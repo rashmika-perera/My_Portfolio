@@ -180,7 +180,7 @@ const About = () => {
           <motion.img
             src={"/perera.webp"}
             alt="Profile"
-            className="relative border border-gray-900 rounded-2xl h-103 w-80 sm:h-113 sm:w-80 md:h-133 md:w-100 mb-4 shadow-2xl"
+            className="relative border border-gray-900 rounded-2xl h-103 w-80 sm:h-113 sm:w-[280px] md:h-133 md:w-100 mb-4 shadow-2xl"
           />
         </motion.div>
 
