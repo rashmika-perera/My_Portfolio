@@ -134,7 +134,7 @@ const Recognitions = () => {
             Milestones of Growth
           </motion.h1>
 
-          <div className="relative inline-block mb-13 mt-4 md:w-[700px] ">
+          <div className="relative inline-block mt-[170px] mb-13  md:w-[700px] ">
             <motion.h1
               id="Recognitions"
               className="text-4xl md:text-5xl font-bold text-center"
