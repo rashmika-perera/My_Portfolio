@@ -122,7 +122,7 @@ const Recognitions = () => {
         </style>
 
         <motion.div
-          className="flex flex-col items-center justify-center h-full text-white mt-10 relative z-10"
+          className="flex flex-col items-center mt-[170px] justify-center h-full text-white  relative z-10"
           variants={itemVariants}
         >
           <motion.h1
@@ -134,7 +134,7 @@ const Recognitions = () => {
             Milestones of Growth
           </motion.h1>
 
-          <div className="relative inline-block mt-[170px] mb-13  md:w-[700px] ">
+          <div className="relative inline-block mb-13  md:w-[700px] ">
             <motion.h1
               id="Recognitions"
               className="text-4xl md:text-5xl font-bold text-center"
