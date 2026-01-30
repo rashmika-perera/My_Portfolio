@@ -17,7 +17,7 @@ const Card = ({ i, title, description, image, tech, link, progress, range, targe
   return (
     <div
       ref={container}
-      className="min-h-screen flex items-center justify-center sticky top-0 px-4 py-8"
+      className="min-h-screen flex items-center justify-center sticky top-0 px-4 py-8 mt-15"
     >
       <motion.div
         style={{
