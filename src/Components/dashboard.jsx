@@ -236,7 +236,7 @@ const Dashboard = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0 }}
                 onClick={scrollToTop}
-                className="fixed bottom-8 right-8 bg-[#04AA6D] hover:bg-[#038f5c] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40"
+                className="fixed top-6 right-8 bg-[#04AA6D] hover:bg-[#038f5c] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >

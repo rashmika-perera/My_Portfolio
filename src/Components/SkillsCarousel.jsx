@@ -91,7 +91,6 @@ const skills = [
 export default function SkillsCarousel() {
   const [centerIndex, setCenterIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [rotates, setRotates] = useState({});
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
@@ -245,21 +244,6 @@ export default function SkillsCarousel() {
           {[leftIndex, centerIndex, rightIndex].map((index) => {
             const isCenter = index === centerIndex;
 
-            const handleMouseMove = (e) => {
-              if (!isCenter) return;
-              const rect = e.currentTarget.getBoundingClientRect();
-              const centerX = rect.left + rect.width / 2;
-              const centerY = rect.top + rect.height / 2;
-              const rotateX = (e.clientY - centerY) / 20;
-              const rotateY = (e.clientX - centerX) / 20;
-
-              setRotates(prev => ({ ...prev, [index]: { x: rotateY, y: -rotateX } }));
-            };
-
-            const handleMouseLeave = () => {
-              setRotates(prev => ({ ...prev, [index]: { x: 0, y: 0 } }));
-            };
-
             return (
               <motion.div
                 key={skills[index].name}
@@ -270,15 +254,9 @@ export default function SkillsCarousel() {
                 }}
                 transition={{ duration: 0.3 }}
                 className={`relative group ${isCenter ? 'cursor-pointer' : ''}`}
-                onMouseMove={isCenter ? handleMouseMove : undefined}
-                onMouseLeave={isCenter ? handleMouseLeave : undefined}
                 onHoverStart={() => isCenter && setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
-                style={{
-                  rotateX: isCenter ? (rotates[index]?.y || 0) : 0,
-                  rotateY: isCenter ? (rotates[index]?.x || 0) : 0,
-                  transformStyle: "preserve-3d",
-                }}
+                style={{ willChange: "transform, opacity" }}
               >
                 {/* Glow Effect for Center */}
                 {isCenter && (
