@@ -41,7 +41,6 @@ const CertificateTimeline = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-  const [rotates, setRotates] = useState(certificates.map(() => ({ x: 0, y: 0 })));
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -70,16 +69,23 @@ const CertificateTimeline = () => {
   };
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const offsets = itemRefs.current.map((ref) => {
-        if (!ref) return Infinity;
-        const rect = ref.getBoundingClientRect();
-        const middle = window.innerHeight / 2;
-        return Math.abs(rect.top + rect.height / 2 - middle);
-      });
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const offsets = itemRefs.current.map((ref) => {
+            if (!ref) return Infinity;
+            const rect = ref.getBoundingClientRect();
+            const middle = window.innerHeight / 2;
+            return Math.abs(rect.top + rect.height / 2 - middle);
+          });
 
-      const minIndex = offsets.indexOf(Math.min(...offsets));
-      setActiveIndex(minIndex);
+          const minIndex = offsets.indexOf(Math.min(...offsets));
+          setActiveIndex(prevIndex => minIndex !== prevIndex ? minIndex : prevIndex);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -148,28 +154,12 @@ const CertificateTimeline = () => {
         variants={containerVariants}
       >
         {certificates.map((cert, index) => {
-          const handleMouseMove = (e) => {
-            const rect = e.currentTarget.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            const rotateX = (e.clientY - centerY) / 15;
-            const rotateY = (e.clientX - centerX) / 15;
-
-            setRotates(prev => prev.map((r, i) => i === index ? { x: rotateY, y: -rotateX } : r));
-          };
-
-          const handleMouseLeave = () => {
-            setRotates(prev => prev.map((r, i) => i === index ? { x: 0, y: 0 } : r));
-          };
-
           return (
             <motion.div
               key={cert.id}
               ref={(el) => (itemRefs.current[index] = el)}
-              className="relative group"
+              className="relative group cursor-pointer"
               variants={itemVariants}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
               whileHover={{
@@ -177,10 +167,9 @@ const CertificateTimeline = () => {
                 transition: { duration: 0.3 }
               }}
               style={{
-                rotateX: rotates[index].y,
-                rotateY: rotates[index].x,
-                transformStyle: "preserve-3d",
+                willChange: "transform, opacity",
               }}
+              onClick={() => setActiveIndex(index)}
             >
               {/* Timeline Glow Effect */}
               <motion.div
