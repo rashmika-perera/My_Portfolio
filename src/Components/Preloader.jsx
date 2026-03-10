@@ -17,13 +17,13 @@ const Preloader = () => {
     const interval = setInterval(() => {
       setCount((prev) => {
         if (prev < 100) {
-          return prev + 1;
+          return prev + 5; // Reaches 100 much faster to eliminate lag
         }
         clearInterval(interval);
         setShowWelcome(true);
         return 100;
       });
-    }, 20); // Controls the speed of the counter
+    }, 15); // Reduced interval delay to drastically improve visual loading speed
 
     return () => clearInterval(interval);
   }, []);
