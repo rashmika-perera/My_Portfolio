@@ -3,9 +3,9 @@ import React, { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { FaCertificate, FaAward, FaTrophy } from "react-icons/fa";
 
-import FrontEndPDF from "./assets/frontEnd.png";
-import AdvancedReact from "./assets/advancedReact.png";
-import Python from "./assets/googlePython.png";
+import FrontEndPDF from "./assets/frontEnd.webp";
+import AdvancedReact from "./assets/advancedReact.webp";
+import Python from "./assets/googlePython.webp";
 
 // Sample certificate data
 const certificates = [

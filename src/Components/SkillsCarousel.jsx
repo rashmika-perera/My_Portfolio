@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import tailwind from "./assets/Tailwind CSS.png";
-import python from "./assets/Python.png";
-import CSharp from "./assets/CSharp.png";
+import tailwind from "./assets/Tailwind CSS.webp";
+import python from "./assets/Python.webp";
+import CSharp from "./assets/CSharp.webp";
 import { GrMysql } from "react-icons/gr";
 import { IoLogoFirebase } from "react-icons/io5";
 import { SiSpring } from "react-icons/si";
