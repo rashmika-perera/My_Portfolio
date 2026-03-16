@@ -130,46 +130,38 @@ const Dashboard = () => {
           >
             {/* Animated Background Elements */}
             <div className="absolute inset-0 pointer-events-none">
-              <motion.div
-                className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-[#04AA6D] to-transparent rounded-full opacity-5 blur-3xl"
-                animate={{
-                  x: [0, 50, 0],
-                  y: [0, -30, 0],
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
+              <div
+                className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-[#04AA6D] to-transparent rounded-full opacity-5 blur-3xl animate-blob-1"
               />
-              <motion.div
-                className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-l from-[#04AA6D] to-transparent rounded-full opacity-8 blur-2xl"
-                animate={{
-                  x: [0, -40, 0],
-                  y: [0, 40, 0],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
+              <div
+                className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-l from-[#04AA6D] to-transparent rounded-full opacity-8 blur-2xl animate-blob-2"
               />
-              <motion.div
-                className="absolute top-1/2 left-1/3 w-16 h-16 bg-[#04AA6D] rounded-full opacity-10"
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.1, 0.3, 0.1],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 2
-                }}
+              <div
+                className="absolute top-1/2 left-1/3 w-16 h-16 bg-[#04AA6D] rounded-full opacity-10 animate-pulse-slow"
               />
             </div>
+
+            <style>
+              {`
+                @keyframes blob-1 {
+                  0%, 100% { transform: translate(0, 0) scale(1); }
+                  33% { transform: translate(50px, -30px) scale(1.2); }
+                  66% { transform: translate(-20px, 20px) scale(0.9); }
+                }
+                @keyframes blob-2 {
+                  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+                  50% { transform: translate(-40px, 40px) rotate(180deg); }
+                  100% { transform: translate(0, 0) rotate(360deg); }
+                }
+                @keyframes pulse-slow {
+                  0%, 100% { opacity: 0.1; transform: scale(1); }
+                  50% { opacity: 0.3; transform: scale(1.5); }
+                }
+                .animate-blob-1 { animation: blob-1 8s ease-in-out infinite; }
+                .animate-blob-2 { animation: blob-2 10s linear infinite; }
+                .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
+              `}
+            </style>
 
             <NavigationBar />
             <div className="flex flex-col justify-center text-center h-screen items-center relative z-10">

@@ -142,81 +142,52 @@ export default function SkillsCarousel() {
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute top-10 left-20 w-24 h-24 bg-gradient-to-r from-[#04AA6D] to-transparent rounded-full opacity-5 blur-2xl"
-          animate={{
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+        <div
+          className="absolute top-10 left-20 w-24 h-24 bg-gradient-to-r from-[#04AA6D] to-transparent rounded-full opacity-5 blur-2xl animate-blob-1"
         />
-        <motion.div
-          className="absolute bottom-10 right-20 w-32 h-32 bg-gradient-to-l from-[#04AA6D] to-transparent rounded-full opacity-8 blur-3xl"
-          animate={{
-            x: [0, -25, 0],
-            y: [0, 25, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "linear"
-          }}
+        <div
+          className="absolute bottom-10 right-20 w-32 h-32 bg-gradient-to-l from-[#04AA6D] to-transparent rounded-full opacity-8 blur-3xl animate-blob-2"
         />
-        <motion.div
-          className="absolute top-1/2 right-1/4 w-20 h-20 bg-[#04AA6D] rounded-full opacity-10"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.1, 0.2, 0.1],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
+        <div
+          className="absolute top-1/2 right-1/4 w-20 h-20 bg-[#04AA6D] rounded-full opacity-10 animate-pulse-slow"
         />
       </div>
       <style>
         {`
     @keyframes rotateOutline {
-      0% {
-        box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.99);
-      }
-      33% {
-        box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.99);
-      }
-      66% {
-        box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.99);
-      }
-      100% {
-        box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.99);
-      }
+      0% { box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.99); }
+      33% { box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.99); }
+      66% { box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.99); }
+      100% { box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.99); }
     }
+    .rgb-outline { animation: rotateOutline 2s linear infinite; }
 
-    .rgb-outline {
-      animation: rotateOutline 2s linear infinite;
-     }
+    @keyframes rgbTextColor {
+      0%   { color: rgb(255, 0, 0); }
+      33%  { color: rgb(0, 255, 0); }
+      66%  { color: rgb(0, 0, 255); }
+      100% { color: rgb(255, 0, 0); }
+    }
+    .rgb-text { animation: rgbTextColor 3s linear infinite; }
+
+    @keyframes blob-1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.1); }
+      66% { transform: translate(-10px, 10px) scale(0.95); }
+    }
+    @keyframes blob-2 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(-25px, 25px) rotate(180deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.1; transform: scale(1); }
+      50% { opacity: 0.2; transform: scale(1.3); }
+    }
+    .animate-blob-1 { animation: blob-1 6s ease-in-out infinite; }
+    .animate-blob-2 { animation: blob-2 8s linear infinite; }
+    .animate-pulse-slow { animation: pulse-slow 5s ease-in-out infinite; }
     `}
-      </style>
-      <style>
-        {`
-        @keyframes rgbTextColor {
-        0%   { color: rgb(255, 0, 0); }     /* Red */
-        33%  { color: rgb(0, 255, 0); }     /* Green */
-        66%  { color: rgb(0, 0, 255); }     /* Blue */
-        100% { color: rgb(255, 0, 0); }     /* Red */
-        }
-
-        .rgb-text {
-         animation: rgbTextColor 3s linear infinite;
-        }
-     `}
       </style>
 
       <motion.div
