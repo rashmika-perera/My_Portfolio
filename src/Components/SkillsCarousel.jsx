@@ -30,6 +30,7 @@ const skills = [
       <img
         src={tailwind}
         alt="Tailwind CSS"
+        loading="lazy"
         className="w-10 h-10 md:w-20 md:h-20 object-contain"
       />
     ),
@@ -63,14 +64,14 @@ const skills = [
   {
     name: "Python",
     icon: (
-      <img src={python} alt="Python" className="w-10 h-10 md:w-20 md:h-20 object-contain" />
+      <img src={python} alt="Python" loading="lazy" className="w-10 h-10 md:w-20 md:h-20 object-contain" />
     ),
     description:
       "I am proficient in Python, a versatile and powerful programming language widely used for web development, data analysis, automation, and more. I write clean, efficient code using Python’s simple syntax and vast standard library. My experience includes working with popular frameworks like Django and Flask for building web applications, as well as using libraries for data manipulation and visualization. Python’s flexibility and readability help me quickly prototype solutions and develop scalable, maintainable software",
   },
   {
     name: "C#",
-    icon: <img src={CSharp} alt="C#" className="w-10 h-10 md:w-20 md:h-20 object-contain" />,
+    icon: <img src={CSharp} alt="C#" loading="lazy" className="w-10 h-10 md:w-20 md:h-20 object-contain" />,
     description:
       "I am skilled in C#, a modern, object-oriented programming language used primarily for building Windows applications, web services, and game development. I utilize C# with the .NET framework to create robust and scalable applications. My experience includes working with features like LINQ, asynchronous programming, and strong type safety. I’m comfortable building user interfaces with Windows Forms or WPF and developing backend APIs using ASP.NET Core. C# enables me to deliver efficient, maintainable, and high-performance software solutions",
   },

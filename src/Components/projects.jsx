@@ -31,6 +31,7 @@ const Card = ({ i, title, description, image, tech, link, progress, range, targe
             style={{ scale: imageScale }}
             src={image}
             alt={title}
+            loading="lazy"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-gray-900 to-transparent" />

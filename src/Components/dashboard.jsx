@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import bg from "/hero.webp";
 import bg2 from "./assets/background2.webp";
 import NavigationBar from "./navigationbar";
-import About from "./about";
-import Skills from "./skills";
-import Project from "./projects.jsx";
-import Footer from "./footer";
-import Social from "./social";
-import Recognitions from "./recognitions";
-import Contact from "./contact";
 import Preloader from "./Preloader";
 import CustomCursor from "./CustomCursor";
 import { Typewriter } from "react-simple-typewriter";
 import { FaArrowUp } from "react-icons/fa";
 import Snowfall from "react-snowfall";
+
+// Lazy load sections for better initial performance
+const About = lazy(() => import("./about"));
+const Skills = lazy(() => import("./skills"));
+const Project = lazy(() => import("./projects.jsx"));
+const Recognitions = lazy(() => import("./recognitions"));
+const Contact = lazy(() => import("./contact"));
+const Footer = lazy(() => import("./footer"));
+const Social = lazy(() => import("./social"));
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,8 +32,14 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2200);
-    return () => clearTimeout(timer);
+    // Check if the page is already loaded
+    if (document.readyState === 'complete') {
+      setIsLoading(false);
+    } else {
+      const handleLoad = () => setIsLoading(false);
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
   }, []);
 
   // Check if it's winter season (November, December, January)
@@ -220,13 +228,17 @@ const Dashboard = () => {
             className="bg-fixed bg-cover bg-center min-h-screen relative"
             style={{ backgroundImage: `url(${bg2})` }}
           >
-            <About />
-            <Skills />
-            <Project />
-            <Recognitions />
-            <Contact />
+            <Suspense fallback={<div className="h-screen flex items-center justify-center text-white">Loading...</div>}>
+              <About />
+              <Skills />
+              <Project />
+              <Recognitions />
+              <Contact />
+            </Suspense>
           </div>
-          <Footer />
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
 
           {/* Back to Top Button */}
           <AnimatePresence>
