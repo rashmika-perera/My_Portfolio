@@ -19,9 +19,9 @@ const Contact = () => {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   // EmailJS configuration - Replace these with your actual EmailJS credentials
-  const SERVICE_ID = 'service_insxkm3'; // Replace with your EmailJS service ID
-  const TEMPLATE_ID = 'template_1slmqzi'; // Replace with your EmailJS template ID
-  const PUBLIC_KEY = '5iekLZaoSG9iFOd8m'; // Replace with your EmailJS public key
+  const SERVICE_ID = 'service_insxkm3';
+  const TEMPLATE_ID = 'template_1slmqzi';
+  const PUBLIC_KEY = '5iekLZaoSG9iFOd8m';
 
   const containerVariants = {
     hidden: { opacity: 0 },
