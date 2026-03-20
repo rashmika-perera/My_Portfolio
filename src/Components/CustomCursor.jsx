@@ -15,7 +15,6 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const moveCursor = (e) => {
-      // Offset by half of cursor width/height to center
       cursorX.set(e.clientX - 16);
       cursorY.set(e.clientY - 16);
     };
