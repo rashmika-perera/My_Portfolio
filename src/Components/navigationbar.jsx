@@ -33,14 +33,14 @@ const NavigationBar = () => {
       className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl mx-auto px-5 py-2 z-50 transition-all duration-300 rounded-full flex justify-between items-center ${
         isScrolled 
           ? "bg-black/20 backdrop-blur-md border border-white/10 shadow-xl" 
-          : "bg-transparent border border-white/5"
+          : "bg-black/20 backdrop-blur-xs border border-white/10 shadow-xl"
       }`}
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.0, duration: 0.8 }}
     >
       <div className="container mx-auto flex justify-between items-center relative h-12 md:h-16">
-        <h1 className="text-white text-3xl md:text-4xl font-bold select-none cursor-pointer hover:text-[#04AA6D] transition-colors">
+        <h1 className="text-white text-3xl md:text-4xl font-bold select-none transition-colors">
           Portfolio.
         </h1>
         {showSnowHat && (
@@ -60,7 +60,7 @@ const NavigationBar = () => {
                   smooth={true}
                   duration={800}
                   offset={item === "about" ? 20 : -80}
-                  className="text-white text-xl font-medium px-4 py-2 hover:bg-white/5 hover:text-[#04AA6D] rounded-full transition-all cursor-pointer select-none"
+                  className="text-white text-xl font-medium px-4 py-2 hover:text-[#04AA6D] rounded-full transition-all cursor-pointer select-none"
                 >
                   {item === "about"
                     ? "Behind The Code"
