@@ -13,19 +13,19 @@ const NavigationBar = () => {
   const closeMenu = () => setIsOpen(false);
 
 
-   // Check if it's winter season (November, December, January)
-    useEffect(() => {
-      const currentMonth = new Date().getMonth(); // 0-11
-      const isWinter = currentMonth === 10 || currentMonth === 11 || currentMonth === 0; // Nov, Dec, Jan
-      setShowSnowHat(isWinter);
-    }, []);
+  // Check if it's winter season (November, December, January)
+  useEffect(() => {
+    const currentMonth = new Date().getMonth(); // 0-11
+    const isWinter = currentMonth === 10 || currentMonth === 11 || currentMonth === 0; // Nov, Dec, Jan
+    setShowSnowHat(isWinter);
+  }, []);
 
   return (
     <motion.nav
-      className="bg-transparent p-8 relative z-50"
-      initial={{ opacity: 0, y: -20 }}
+      className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl mx-auto px-5 py-4 z-50 bg-black/30 backdrop-blur-md border border-white/10 rounded-full flex justify-between items-center shadow-xl"
+      initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 2.0 }}
+      transition={{ delay: 1.0, duration: 0.8, ease: "easeOut" }}
     >
       <div className="container relative mx-auto flex justify-between items-center">
         <h1 className="text-white text-4xl font-bold select-none">
@@ -53,12 +53,12 @@ const NavigationBar = () => {
                   {item === "about"
                     ? "Behind The Code"
                     : item === "toolbox"
-                    ? "Toolbox"
-                    : item === "Devfolio"
-                    ? "Devfolio"
-                    : item === "Recognitions"
-                    ? "Recognitions"
-                    : "Contact"}
+                      ? "Toolbox"
+                      : item === "Devfolio"
+                        ? "Devfolio"
+                        : item === "Recognitions"
+                          ? "Recognitions"
+                          : "Contact"}
                 </Link>
               </li>
             )
@@ -78,9 +78,8 @@ const NavigationBar = () => {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-3/4 sm:w-1/2 bg-[#111] p-8 transition-transform transform ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden`}
+        className={`fixed top-0 right-0 h-full w-3/4 sm:w-1/2 bg-[#111] p-8 transition-transform transform ${isOpen ? "translate-x-0" : "translate-x-full"
+          } md:hidden`}
       >
         <ul className="flex flex-col mt-10 space-y-6 text-white text-lg font-semibold">
           <IoClose
@@ -101,12 +100,12 @@ const NavigationBar = () => {
                   {item === "about"
                     ? "Behind The Code"
                     : item === "toolbox"
-                    ? "Toolbox"
-                    : item === "Devfolio"
-                    ? "Devfolio"
-                    : item === "Recognitions"
-                    ? "Recognitions"
-                    : "Contact"}
+                      ? "Toolbox"
+                      : item === "Devfolio"
+                        ? "Devfolio"
+                        : item === "Recognitions"
+                          ? "Recognitions"
+                          : "Contact"}
                 </Link>
               </li>
             )

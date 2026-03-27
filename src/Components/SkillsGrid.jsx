@@ -64,10 +64,10 @@ const skills = [
     span: "md:col-span-1 md:row-span-1",
   },
   {
-    name: "Python",
-    icon: <img src={python} alt="Python" className="w-7 h-7 md:w-9 md:h-9 object-contain" />,
-    description: "Data processing and automation.",
-    color: "from-[#3776AB]/20",
+    name: "React Native",
+    icon: <FaReact className="text-[#61DAFB] text-3xl md:text-4xl" />,
+    description: "Cross-platform mobile app development.",
+    color: "from-[#61DAFB]/20",
     span: "md:col-span-1 md:row-span-1",
   },
   {

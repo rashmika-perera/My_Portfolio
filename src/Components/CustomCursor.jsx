@@ -46,7 +46,7 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 pointer-events-none z-50 hidden md:flex items-center justify-center w-8 h-8"
+      className="fixed top-0 left-0 pointer-events-none z-[999] hidden md:flex items-center justify-center w-8 h-8"
       style={{
         x: cursorXSpring,
         y: cursorYSpring,

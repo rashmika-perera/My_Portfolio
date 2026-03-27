@@ -141,6 +141,83 @@ const Projects = () => {
       </div>
 
       <div className="relative">
+        {/* Vertical Progress Line */}
+        <div className="absolute left-8 md:left-30 2xl:left-60 top-4 bottom-4 w-[2px]  z-0 hidden md:block">
+          <motion.div
+            className="w-full bg-[#04AA6D] shadow-[0_0_15px_rgba(4,170,109,0.5)] origin-top"
+            style={{ 
+              scaleY: scrollYProgress,
+              height: "100%" 
+            }}
+          />
+          
+          {/* Real Green Fire Tip */}
+          <motion.div
+            className="absolute left-1/2 -translate-x-1/2 z-10"
+            style={{ 
+              top: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]),
+              opacity: useTransform(scrollYProgress, [0, 0.05], [0, 1]),
+              translateY: "-50%" 
+            }}
+          >
+            {/* The Flame Container */}
+            <div className="relative">
+              {/* Flame Layers */}
+              {[...Array(3)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 bg-gradient-to-t from-[#04AA6D] via-[#00ff88]/50 to-transparent blur-[4px] rounded-full"
+                  animate={{
+                    height: [20, 50, 30, 60, 25],
+                    scaleX: [1, 1.4, 0.8, 1.2, 1],
+                    opacity: [0.6, 0.9, 0.4, 0.7, 0.6],
+                    rotate: [((i - 1) * 5), ((i - 1) * -5), ((i - 1) * 5)]
+                  }}
+                  transition={{
+                    duration: 0.4 + i * 0.1,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  style={{
+                    zIndex: 3 - i,
+                    filter: "blur(2px) contrast(150%)"
+                  }}
+                />
+              ))}
+
+              {/* Core Bubble */}
+              <motion.div
+                className="w-5 h-5 bg-[#04AA6D] rounded-full shadow-[0_0_30px_#04AA6D,0_0_60px_#00ff88] relative z-20"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 0.5, repeat: Infinity }}
+              >
+                <div className="absolute inset-1 bg-white/80 rounded-full blur-[2px]" />
+              </motion.div>
+
+              {/* Floating Embers/Sparks */}
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={`spark-${i}`}
+                  className="absolute w-1 h-1 bg-[#00ff88] rounded-full z-30"
+                  initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
+                  animate={{
+                    x: [(Math.random() - 0.5) * 30, (Math.random() - 0.5) * 60],
+                    y: [-40, -100],
+                    opacity: [1, 0],
+                    scale: [1, 0],
+                  }}
+                  transition={{
+                    duration: 1 + Math.random(),
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                    ease: "easeOut"
+                  }}
+                />
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
         {project.map((proj, index) => {
           const targetScale = 1 - (project.length - index) * 0.05;
           return (
