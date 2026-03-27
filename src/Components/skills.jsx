@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import SkillsCarousel from "./SkillsCarousel";
+import SkillsGrid from "./SkillsGrid";
 
 const Skills = () => {
   const containerRef = useRef(null);
@@ -164,7 +164,7 @@ const Skills = () => {
         transition={{ duration: 0.8, delay: 0.6 }}
         className="relative z-10"
       >
-        <SkillsCarousel />
+        <SkillsGrid />
       </motion.div>
     </motion.div>
   );
