@@ -30,7 +30,7 @@ const NavigationBar = () => {
 
   return (
     <motion.nav
-      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl mx-auto px-5 py-2 z-50 transition-all duration-300 rounded-full flex justify-between items-center ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl mx-auto px-5 py-1 z-50 transition-all duration-300 rounded-full flex justify-between items-center ${
         isScrolled 
           ? "bg-black/20 backdrop-blur-md border border-white/10 shadow-xl" 
           : "bg-black/20 backdrop-blur-xs border border-white/10 shadow-xl"

@@ -166,7 +166,7 @@ const Dashboard = () => {
             <NavigationBar />
             <div className="flex flex-col justify-center text-center h-screen items-center relative z-10">
               <motion.h1
-                className="text-white text-6xl sm:text-8xl md:text-7xl font-bold mt-[-150px] mb-10 select-none"
+                className="text-white text-6xl sm:text-8xl md:text-7xl font-bold mb-6 select-none"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
