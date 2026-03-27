@@ -3,7 +3,7 @@ import movieSite from "./assets/movieSite.webp";
 import pharmacy from "./assets/pharmacy.webp";
 import finance from "./assets/finance.webp";
 import little from "./assets/littlelemon.webp";
-import engagex from "./assets/engage-x.webp";
+import engagex from "./assets/engage-X.webp";
 import kalana from "./assets/kalana.webp";
 
 const project = [
