@@ -3,9 +3,17 @@ import movieSite from "./assets/movieSite.webp";
 import pharmacy from "./assets/pharmacy.webp";
 import finance from "./assets/finance.webp";
 import little from "./assets/littlelemon.webp";
+import engagex from "./assets/engage-x.webp";
 import kalana from "./assets/kalana.webp";
 
 const project = [
+  {
+    title: "Engage-X",
+    description: "A modern AI-powered app built with React, TypeScript, and Vite. Engage-X offers a responsive, type-safe design, advanced AI features, and seamless Vercel deployment—showcasing best practices in contemporary web development.",
+    image: engagex,
+    tech: ["Next.js", "Tailwind", "Vercel", "TypeScript"],
+    link: "https://engagex-fawn.vercel.app/",
+  },
   {
     title: "Daily Bloom",
     description: "A modern task management app built with React, TypeScript, and Vite. Features a responsive design, type-safe codebase, and optimized performance, showcasing contemporary web development practices with seamless Vercel deployment.",
@@ -18,6 +26,7 @@ const project = [
     description: "A modern e-commerce platform for furniture shopping built with TypeScript and React. Features product catalog browsing, shopping cart functionality, and seamless user experience with type-safe code architecture and responsive design for optimal performance.",
     image: kalana,
     tech: ["TypeScript", "React", "JavaScript"],
+    link: "https://github.com/rashmika-perera/Kalana-Furniture-Frontend",
   },
   {
     title: "Finance Manager",

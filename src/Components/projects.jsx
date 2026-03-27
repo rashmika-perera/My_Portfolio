@@ -34,7 +34,7 @@ const Card = ({ i, title, description, image, tech, link, progress, range, targe
             loading="lazy"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-gray-900 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-bt md:bg-gradient-to-t from-gray-950 to-transparent" />
         </div>
 
         <div className="w-full md:w-2/5 p-4 md:p-6 flex flex-col justify-between min-h-[250px] md:min-h-0">
