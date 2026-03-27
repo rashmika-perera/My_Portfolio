@@ -83,7 +83,7 @@ const NavigationBar = () => {
             onClick={toggleMenu}
             className="text-white focus:outline-none"
           >
-            {isOpen ? <X size={32} /> : <Menu size={32} />}
+           <Menu size={32} />
           </button>
         </div>
       </div>
