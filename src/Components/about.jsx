@@ -207,7 +207,7 @@ const About = () => {
             I'm Rashmika Perera, a passionate Full Stack developer and designer
           </motion.h1>
           <motion.p
-            className="text-sm md:text-[16px] text-gray-400 leading-[1.6] mt-2"
+            className="text-justify text-sm md:text-[16px] text-gray-400 leading-[1.6] mt-2"
             style={{ fontFamily: "'Poppins', sans-serif" }}
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
