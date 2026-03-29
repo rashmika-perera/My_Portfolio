@@ -314,7 +314,7 @@ const Contact = () => {
                 </motion.div>
               </div>
 
-              {/* Message */}
+              {/* Message.... */}
               <motion.div
                 className="relative"
                 initial={{ opacity: 0, y: 30 }}
