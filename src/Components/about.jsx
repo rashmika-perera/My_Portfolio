@@ -55,7 +55,6 @@ const About = () => {
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
     >
-      {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-[#04AA6D] to-transparent rounded-full opacity-5 blur-3xl"
